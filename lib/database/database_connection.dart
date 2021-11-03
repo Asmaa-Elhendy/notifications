@@ -37,7 +37,7 @@ static _oncreate(Database database,int version )async{
   //  await AndroidAlarmManager.oneShotAt(DateTime(2021,10,26,category.hours,category.minute,5), id,createMyNotification(id)); //top level issue
   // final Duration taskDuration =  getTaskDuration(DateTime(2021,10,27,20,20));
    Workmanager().registerOneOffTask("${category.description}", "${category.title}",initialDelay: Duration(seconds: 5),inputData: category.category_to_map());
-   await createMyNotificcation(category.title,category.description);
+  // await createMyNotificcation(category.title,category.description);
     print('before return');
 
 

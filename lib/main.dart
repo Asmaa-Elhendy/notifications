@@ -15,16 +15,17 @@ List<Map<String,dynamic>> dataList = [];
 Future<void> main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
-  DatabaseConnection databaseConnection=DatabaseConnection();
-  dataList = await databaseConnection.getdatabase();
 
+  DatabaseConnection databaseConnection=DatabaseConnection();
+  await databaseConnection.getdatabase().then((value) {
+    dataList = value ;
+    Workmanager().initialize((callbackDispatcher));
+  });
   print('main ${dataList}');
   //await categoryProvider.getlist();
- print('main ${dataList}');
-    Workmanager().initialize((callbackDispatcher));
 
 
-  runApp(MyApp());
+
 
   AwesomeNotifications().initialize(
       null,
@@ -45,7 +46,7 @@ Future<void> main() async{
         )
       ]
   );
-
+  runApp(MyApp());
 }
 
    void callbackDispatcher()async {
